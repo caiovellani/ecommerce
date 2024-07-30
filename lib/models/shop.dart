@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'product.dart';
 
-class Shop {
+class Shop extends ChangeNotifier {
   // list of products for sale
   final List<Product> _shop = [
     Product(
@@ -37,10 +39,12 @@ class Shop {
   // add item to cart
   void addToCart(Product item) {
     _cart.add(item);
+    notifyListeners();
   }
 
   // remove item from cart
   void removeFromCart(Product item) {
     _cart.remove(item);
+    notifyListeners();
   }
 }
